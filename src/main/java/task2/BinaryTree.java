@@ -81,7 +81,6 @@ public class BinaryTree {
         nodes.add(root);
         while (!nodes.isEmpty()) {
             Node node = nodes.remove();
-            System.out.print(" " + node.value);
             nodeList.add(node.value);
             if (node.left != null) {
                 nodes.add(node.left);
