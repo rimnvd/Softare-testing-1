@@ -19,8 +19,8 @@ public class EventTest {
 
     @Test
     void eventTest() {
-        assertEquals(event.getDescription(), "Открытие музея");
-        assertEquals(event.getType(), EventType.POSITIVE);
+        assertEquals("Открытие музея", event.getDescription());
+        assertEquals(EventType.POSITIVE, event.getType());
     }
 
     @Test
@@ -48,13 +48,13 @@ public class EventTest {
         City cityNY = new City("Нью-Йорк", country);
         City cityChicago = new City("Чикаго", country);
         event1.affect(cityCalifornia);
-        assertEquals(cityCalifornia.getCountNegativeEvent(), 1);
+        assertEquals(1, cityCalifornia.getCountNegativeEvent());
         event1.affect(cityCalifornia);
         event1.affect(cityCalifornia);
         assertFalse(cityCalifornia.isExist());
-        assertEquals(cityCalifornia.getCountPositiveEvent(), 0);
-        assertEquals(cityCalifornia.getCountNegativeEvent(), 0);
-        assertEquals(cityCalifornia.getCountry().getCurrencyValue(), 1496);
+        assertEquals(0, cityCalifornia.getCountPositiveEvent());
+        assertEquals(0, cityCalifornia.getCountNegativeEvent());
+        assertEquals(1496, cityCalifornia.getCountry().getCurrencyValue());
         assertFalse(cityCalifornia.getCountry().findCityInCities(cityCalifornia));
         ByteArrayOutputStream output = setUpStream();
         event1.affect(cityCalifornia);
@@ -72,8 +72,8 @@ public class EventTest {
         event1.affect(cityCalifornia);
         assertFalse(country.isExist());
         assertFalse(cityNY.isExist());
-        assertEquals(country.getCitiesCount(), 0);
-        assertEquals(country.getCurrencyValue(), 0);
+        assertEquals(0, country.getCitiesCount());
+        assertEquals(0, country.getCurrencyValue());
     }
 
     ByteArrayOutputStream setUpStream() {
